@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Footer } from "./components/Footer"
-import { Header } from "./components/Header"
-import { MovieCard } from "./components/MovieCard"
-import { Layout } from "./layout/Layout"
+import MovieCard from "./pages/MovieCard"
+import Home from "./pages/Home"
+import Layout from "./layout/Layout"
 
 export default function App() {
 
@@ -13,8 +11,8 @@ export default function App() {
         <Routes>
           <Route element={<Layout />} >
 
-            <Route path='/' element={ } />
-            <Route path='/boh' element={ } />
+            <Route path='/' element={<Home />} />
+            <Route path='/movie' element={<MovieCard />} />
 
           </Route>
         </Routes>
