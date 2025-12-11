@@ -2,9 +2,9 @@
 
 steps:
 - install react, clean up starting app
-- [] install react-router-dom, axios, bootstrap, bootstrap-icon
-- [] create the default layout
-- [] create first route with an homepage component
+- [X] install react-router-dom, axios, bootstrap, bootstrap-icon
+- [X] create the default layout
+- [X] create first route with an homepage component
     - [] ajax call to get the movies from server api
     - [] create an env file to store the api server url
     - [] print results on page using components
