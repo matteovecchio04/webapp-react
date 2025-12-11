@@ -1,5 +1,7 @@
 import axios from "axios"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+
 
 export default function Home() {
     const [movies, setMovies] = useState([])
@@ -17,19 +19,21 @@ export default function Home() {
 
     return (
         <>
-            <h1>Home</h1>
             <div className="row">
                 {
                     movies.map(movie => {
                         return (
-                            <div className="col-12 col-md-6 col-lg-4">
-                                <div key={movie.id} className="card">
-                                    <h1 className="text-center">{movie.title}</h1>
-                                    <img src={`http://localhost:3000/images/${movie.image}`} className="card-img-top" alt={movie.title} />
-                                    <div className="card-body">
-                                        <p className="card-text">{movie.abstract}</p>
+                            <div key={movie.id} className="col-12 col-md-6 col-lg-4">
+                                <Link to={`/${movie.id}`}>
+                                    <div className="card">
+                                        <h1 className="text-center">{movie.title}</h1>
+                                        <img src={`http://localhost:3000/images/${movie.image}`} className="card-img-top" alt={movie.title} />
+                                        <div className="card-body">
+                                            <p className="card-text">{movie.abstract}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
+
                             </div>
 
                         )
