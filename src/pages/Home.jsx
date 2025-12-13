@@ -2,7 +2,6 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-
 export default function Home() {
     const [movies, setMovies] = useState([])
 
@@ -33,14 +32,11 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </Link>
-
                             </div>
-
                         )
                     })
                 }
             </div>
-
         </>
     )
 }

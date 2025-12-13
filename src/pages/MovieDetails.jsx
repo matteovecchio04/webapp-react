@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 
 export default function MovieDetails() {
     const [movie, setMovie] = useState([])
-
     const { id } = useParams()
 
     useEffect(() => {
