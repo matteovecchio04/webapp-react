@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 
-export default function Review_Form() {
+export default function Review_Form({ refresh }) {
 
     const formBlank = {
         name: "",
@@ -22,6 +22,9 @@ export default function Review_Form() {
             })
             .catch(err => {
                 console.error(err)
+            })
+            .finally(() => {
+                refresh()
             })
     }
 

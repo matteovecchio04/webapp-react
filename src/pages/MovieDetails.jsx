@@ -8,7 +8,7 @@ export default function MovieDetails() {
     const [movie, setMovie] = useState({})
     const { id } = useParams()
 
-    useEffect(() => {
+    function getSingleMovie() {
         axios.get(`http://localhost:3000/movies/${id}`)
             .then(res => {
                 setMovie(res.data)
@@ -17,7 +17,9 @@ export default function MovieDetails() {
             .catch(error => {
                 console.error(error);
             })
-    }, [])
+    }
+
+    useEffect(getSingleMovie, [])
 
     return (
         <>
@@ -27,7 +29,7 @@ export default function MovieDetails() {
             <img src={`http://localhost:3000/images/${movie.image}`} alt={movie.title} />
             <div>{movie.abstract}</div>
             <Reviews movie={movie} />
-            <Review_Form />
+            <Review_Form refresh={getSingleMovie} />
         </>
     )
 }
