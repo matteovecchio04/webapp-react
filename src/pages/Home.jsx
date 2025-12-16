@@ -20,21 +20,19 @@ export default function Home() {
         <>
             <div className="row">
                 {
-                    movies.map(movie => {
-                        return (
-                            <div key={movie.id} className="col-12 col-md-6 col-lg-4">
-                                <Link to={`/${movie.id}`}>
-                                    <div className="card">
-                                        <h1 className="text-center">{movie.title}</h1>
-                                        <img src={`http://localhost:3000/images/${movie.image}`} className="card-img-top" alt={movie.title} />
-                                        <div className="card-body">
-                                            <p className="card-text">{movie.abstract}</p>
-                                        </div>
+                    movies.map(movie => (
+                        <div key={movie.id} className="col-12 col-md-6 col-lg-4">
+                            <Link to={`/${movie.id}`}>
+                                <div className="card">
+                                    <h1 className="text-center">{movie.title}</h1>
+                                    <img src={`http://localhost:3000/images/${movie.image}`} className="card-img-top" alt={movie.title} />
+                                    <div className="card-body">
+                                        <p className="card-text">{movie.abstract}</p>
                                     </div>
-                                </Link>
-                            </div>
-                        )
-                    })
+                                </div>
+                            </Link>
+                        </div>
+                    ))
                 }
             </div>
         </>

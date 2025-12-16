@@ -1,9 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import Reviews from "../components/Reviews"
+import Review_Form from "../components/Review_Form"
 
 export default function MovieDetails() {
-    const [movie, setMovie] = useState([])
+    const [movie, setMovie] = useState({})
     const { id } = useParams()
 
     useEffect(() => {
@@ -24,7 +26,8 @@ export default function MovieDetails() {
             <div>{movie.genre}</div>
             <img src={`http://localhost:3000/images/${movie.image}`} alt={movie.title} />
             <div>{movie.abstract}</div>
+            <Reviews movie={movie} />
+            <Review_Form />
         </>
-
     )
 }
