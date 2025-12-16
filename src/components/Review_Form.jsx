@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { useParams } from "react-router-dom"
+import axios from "axios"
 
 export default function Review_Form() {
 
@@ -9,10 +11,18 @@ export default function Review_Form() {
     }
 
     const [formData, setFormData] = useState(formBlank)
+    const { id } = useParams()
 
     function handleFormSubmit(e) {
         e.preventDefault()
 
+        axios.post(`http://localhost:3000/movies/${id}/reviews`, formData)
+            .then(() => {
+                setFormData(formBlank)
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 
     return (
