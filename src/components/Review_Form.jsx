@@ -1,18 +1,34 @@
+import { useState } from "react"
+
 export default function Review_Form() {
+
+    const formBlank = {
+        name: "",
+        vote: "",
+        text: ""
+    }
+
+    const [formData, setFormData] = useState(formBlank)
+
+    function handleFormSubmit(e) {
+        e.preventDefault()
+
+    }
+
     return (
         <>
             <h1>review form</h1>
 
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
-                    <input type="name" className="form-control" id="name" placeholder="John Smith" />
+                    <input onChange={(e) => setFormData({ ...formData, name: e.target.value })} value={formData.name} type="name" className="form-control" id="name" placeholder="John Smith" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Write your review !</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea onChange={(e) => setFormData({ ...formData, text: e.target.value })} value={formData.text} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
-                <select className="form-select" aria-label="Default select example">
+                <select onChange={(e) => setFormData({ ...formData, vote: e.target.value })} value={formData.vote} className="form-select" aria-label="Default select example">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
